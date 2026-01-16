@@ -10,15 +10,10 @@ Welcome to my little AI project! This is a smart assistant that can distinguish 
     * Streamlit Web App: For a beautiful, visual chat interface.
 
 ## Project Structure
-.
-
-├── logic.py            # Handles API calls, math logic, and regex
-
-├── main.py             # CLI interface for the assistant
-
-├── app.py              # Streamlit interface
-
-└── requirements.txt    # Dependencies
+* logic.py: Handles API calls and math logic
+* main.py: CLI interface for the assistant
+* app.py: Streamlit interface
+* requirements.txt: Dependencies
 
 ## How to Run
 1. Clone the Repository
