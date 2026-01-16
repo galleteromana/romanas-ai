@@ -10,12 +10,14 @@ Welcome to my little AI project! This is a smart assistant that can distinguish 
     * Streamlit Web App: For a beautiful, visual chat interface.
 
 ## Project Structure
-We use a clean architecture to avoid code duplication!
 .
-├── logic.py           # The Brain: Handles API calls, math logic, and regex
-├── main.py            # The Terminal: CLI interface for the assistant
-├── app.py             # The Web App: Streamlit interface
-├── .env               # Secrets: Stores your HF_TOKEN (Don't commit this!)
+
+├── logic.py           # Handles API calls, math logic, and regex
+
+├── main.py            # CLI interface for the assistant
+
+├── app.py             # Streamlit interface
+
 └── requirements.txt   # Dependencies
 
 ## How to Run
@@ -68,5 +70,3 @@ The is_math_question function igmores common non-math numbers, so it won't try t
 Made with love, Python, and lots of coffee.
 
 Enjoy the AI! ૮ ˶ᵔ ᵕ ᵔ˶ ა
-
-# romanas-ai
