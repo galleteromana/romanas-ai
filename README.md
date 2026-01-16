@@ -19,17 +19,17 @@ Welcome to my little AI project! This is a smart assistant that can distinguish 
 The application relies on a shared brain, located in ```logic.py```, which allows both the Terminal and Web interfaces to behave identically.
 
 ### The Decision Engine ```is_math_question```
-Before calling the API, the application needs to determine the user's intent. It is made by the use of a Two-Pass Filter strategy:
+Before calling the API, the application needs to determine the user's intent. It is made by the use of a Two-Step Filter strategy:
 
 * **Negative Filtering:** the system first checks for patterns that look like math but aren't. By using regular expressions it's possible to ignore:
-    * Dates: 12/12/2024..
+    * Dates: 12/12/2024.
     * IDs (CPF/CNPJ/RG).
     * Phone Numbers: (11) 91234-5678. 
 If any of these are found, the function immediately returns False to prevent the calculator from trying to "divide" a date.
 
 * **Positive Identification:** if the input survives the negative filter, it is checked for actual math signals:
     * Keyword Matching: checks for natural language terms in English and Portuguese (e.g., "calculate", "sum of", "vezes", "elevado a").
-    * Symbol Pattern Matching: Uses Regex to find numerical operations (e.g., \d+[\s]*[+\-*/%^**]) to detect raw equations.
+    * Symbol Pattern Matching: uses Regex to find numerical operations to detect raw equations.
 
 
 ### The Natural Language Calculator ```calculate```
@@ -37,7 +37,7 @@ If the decision engine flags the input as math, the request is processed locally
 
 * **Mapping:** the function maps natural language words to Python operators. It iterates through a dictionary to replace "plus" with +, "minus" with -, "times" with *, "divided by" with /, and "^" with **.
 
-* **Sanitization:** security is prioritized by stripping all characters that are not numbers or operators. The Regex [^0-9+\-*/().\s] ensures that no malicious code can be passed to the evaluator.
+* **Sanitization:** a regular expression strips all characters that are not numbers or operators.
 
 * **Evaluation:** the cleaned expression is safely computed using Python's ```eval()``` function and the result is returned as a string.
 
@@ -48,7 +48,7 @@ If the input is not math, it is routed to the Large Language Model.
 
 * **Model Specification:** requests are sent to Meta-Llama-3-8B-Instruct, a open-source model for chat instructions.
 
-* **Error Handling:** the function includes a ```try-except``` block to catch connection errors (e.g., invalid tokens or network issues) and return a user-friendly error message instead of crashing the application.
+* **Error Handling:** the function includes a ```try-except``` block to catch connection errors (like invalid tokens or network issues) and return a user-friendly error message instead of crashing the application.
 
 ## How to Run
 1. Clone the Repository
@@ -69,12 +69,12 @@ HF_TOKEN = replace_with_your_huggingface_token
 ```
 
 4. Run it:
-* Option A: the Terminal Bunny
+* Option A: the Terminal Bunny.
 ```
 python main.py  
 ```
 
-* Option B: the Web Bunny
+* Option B: the Web Bunny.
 ```
 streamlit run app.py
 ```
