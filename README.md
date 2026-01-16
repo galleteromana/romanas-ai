@@ -12,13 +12,13 @@ Welcome to my little AI project! This is a smart assistant that can distinguish 
 ## Project Structure
 .
 
-├── logic.py           # Handles API calls, math logic, and regex
+├── logic.py            # Handles API calls, math logic, and regex
 
-├── main.py            # CLI interface for the assistant
+├── main.py             # CLI interface for the assistant
 
-├── app.py             # Streamlit interface
+├── app.py              # Streamlit interface
 
-└── requirements.txt   # Dependencies
+└── requirements.txt    # Dependencies
 
 ## How to Run
 1. Clone the Repository
